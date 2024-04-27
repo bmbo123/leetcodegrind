@@ -16,15 +16,15 @@ public:
             return 0;
         }
         vector<int> v;
-        inorder(root,v);
+        inorderTraversal(root,v);
         return v.at(k-1);
     }
-    void inorder(TreeNode* root, vector<int>& L){
-        if(root == nullptr){
+    void inorderTraversal(TreeNode* root, vector<int>& v ){
+        if(root ==  nullptr){
             return;
         }
-        inorder(root->left,L);
-        L.push_back(root->val);
-        inorder(root->right,L);
+        inorderTraversal(root->left,v);
+        v.push_back(root->val);
+        inorderTraversal(root->right,v);
     }
 };
