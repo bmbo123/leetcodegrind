@@ -1,9 +1,9 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        f = ""
-        for char in s:
-            if char.isalnum():
-                f += char
-        f=f.lower()
-        r = f[::-1]
-        return f == r
+        real = "" 
+        for i in s:
+            if i.isalnum():
+                real += i
+        real = real.lower()
+        r = real[::-1]
+        return r==real
