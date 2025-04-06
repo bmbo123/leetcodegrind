@@ -16,7 +16,6 @@ class Solution:
             if digits[i] == 9:
                 if flag:
                     digits[i] = 0
-                    flag = True
             elif flag :
                 digits[i] += 1
                 flag = False
