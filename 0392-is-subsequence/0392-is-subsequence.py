@@ -1,7 +1,5 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        if s == t:
-            return True
         index = 0
         for i in range(len(t)):
             if index == len(s):
