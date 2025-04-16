@@ -9,7 +9,7 @@ class MyHashSet:
 
     def remove(self, key: int) -> None:
         if key in self.s:
-            self.s.remove(key)
+            self.s.discard(key)
 
     def contains(self, key: int) -> bool:
         return key in self.s
