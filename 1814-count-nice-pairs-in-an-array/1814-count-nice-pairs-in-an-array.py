@@ -9,7 +9,6 @@ class Solution:
             test = reversed(x)
             test = "".join(test)
             test = int(test)
-            print(test)
             r = nums[i] - test
             if r in seen:
                 count += seen[r]
@@ -17,7 +16,7 @@ class Solution:
             else:
                 seen[r] = 1
         mod = 10**9 + 7
-        print(mod)
+
         return count % mod
 
             
