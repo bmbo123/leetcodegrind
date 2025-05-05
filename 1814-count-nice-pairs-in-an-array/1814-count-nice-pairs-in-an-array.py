@@ -16,7 +16,7 @@ class Solution:
                 seen[r] += 1
             else:
                 seen[r] = 1
-        mod = pow(10,9) + 7
+        mod = 10**9 + 7
         print(mod)
         return count % mod
 
