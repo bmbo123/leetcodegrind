@@ -7,7 +7,7 @@ class Solution:
         print(g)
         j = 0 
         for i in range(len(s)):
-            if i <= len(g)- 1:
+            if j <= len(g)-1:
                 if s[i] >= g[j]:
                     count += 1
                     j += 1
