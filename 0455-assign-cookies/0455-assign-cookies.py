@@ -1,14 +1,19 @@
+import heapq
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
-        g.sort()
-        s.sort()
-        print(g)
-        print(s)
-        count = 0
-        check = 0
-        for i in range(len(s)):
-            if check < len(g):
-                if s[i] >= g[check]:
-                    count += 1
-                    check += 1
-        return count
+        kids = 0
+        max_g = [-greed for greed in g]
+        max_s = [-size for size in s]
+
+        heapq.heapify(max_g)
+        heapq.heapify(max_s)
+
+        while max_g and max_s:
+            if -max_g[0] <= -max_s[0]:
+                kids += 1
+                heapq.heappop(max_g)
+                heapq.heappop(max_s)
+            else:
+                heapq.heappop(max_g)
+        
+        return kids
