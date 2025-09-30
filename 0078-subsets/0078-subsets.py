@@ -1,11 +1,12 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = [[]]
-        for i in range(len(nums)):
-            add = []
-            for j in range(len(res)):
-                copy = res[j].copy()
-                copy.append(nums[i])
-                add.append(copy)
-            res.extend(add)
+        res = []
+        def solve(nums, choice, n,l):
+            res.append(list(choice))
+            for i in range(l,n):
+                choice.append(nums[i])
+                solve(nums,choice,n,i+1)
+                choice.pop()
+        solve(nums,[],len(nums),0)
         return res
+
