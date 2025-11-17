@@ -1,16 +1,18 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        norm = ""
+        p = ""
+
         for char in s:
             if char.isalnum():
-                norm += char
-        norm = norm.lower()
-        L, R = 0, len(norm)-1
-
+                p += char
+        L , R = 0, len(p) - 1
+        p = p.lower()
         while L < R:
-            if norm[L] != norm[R]:
+            if p[L] == p[R]:
+                L += 1
+                R -= 1
+            else:
                 return False
-            L += 1
-            R -= 1
+
         return True
-        
+ 
