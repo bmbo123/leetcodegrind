@@ -1,16 +1,18 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        x = Counter(nums)
-        buckets = []
-        for i in range(len(nums)):
-            buckets.append([])
-        for key, val in x.items():
-            buckets[val-1].append(key)
 
+        seen = Counter(nums)
         res = []
-        for i in range(len(buckets)):
-            res.extend(buckets[i-1])
+        while k> 0 and seen:
+            x = max(seen, key = seen.get)
+            res.append(x)
+            del seen[x]
+            k -= 1
         
-        return res[-k:]
-        
+        return res
+            
+
+
+
+            
         
