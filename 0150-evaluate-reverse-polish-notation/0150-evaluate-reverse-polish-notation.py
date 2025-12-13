@@ -5,9 +5,7 @@ class Solution:
             x = token.strip("-")
             if x.isalnum():
                 stack.append(int(token))
-                print(stack)
             else:
-                print(stack)
                 x, y = stack.pop(), stack.pop()
                 if token == "+":
                     stack.append(int(x+y))
