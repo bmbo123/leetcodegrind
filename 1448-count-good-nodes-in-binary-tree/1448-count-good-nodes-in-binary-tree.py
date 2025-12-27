@@ -6,24 +6,17 @@
 #         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        count = []
-        def helper(root,m):
-
-            if root is None:
-                return 
-            
-            if root.val >= m:
-                print(root.val)
-                count.append(root.val)
-            m = max(root.val, m)
-
-            helper(root.left,m)
-            helper(root.right,m)
-            
-
-        helper(root,root.val)
-        return len(count)
-
-
-
         
+        # max is the node visited previously
+        def helper(root,m):
+            if root == None:
+                return 0
+            if root.val  >= m:
+                m = max(root.val,m)
+                return helper(root.left,m) + helper(root.right, m) + 1
+            else:
+                return helper(root.left, m) + helper(root.right, m)
+        return helper(root, root.val)
+
+            
+            
