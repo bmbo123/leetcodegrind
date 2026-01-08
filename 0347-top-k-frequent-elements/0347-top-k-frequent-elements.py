@@ -1,18 +1,24 @@
 class Solution:
+    from collections import Counter
+    import heapq
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-
-        seen = Counter(nums)
-        res = []
-        while k> 0 and seen:
-            x = max(seen, key = seen.get)
-            res.append(x)
-            del seen[x]
-            k -= 1
+        freq = Counter(nums)
+        #print(freq)
+        max_heap = []
+        result = []
         
-        return res
+        
+        
+        for number,freq in freq.items():
+            heapq.heappush(max_heap,(freq*-1,number))
+        
+        for i in range(k):
+            result.append(heapq.heappop(max_heap)[1])
             
-
-
-
-            
+        return result
+        
+        
+        
+        
+        
         
