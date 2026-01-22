@@ -1,20 +1,19 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        groups = {}
 
-        seen = {}
+        for word in strs:
+            norm = "".join(sorted(list(word)))
 
-        for i in range(len(strs)):
-
-            norm = "".join(sorted(list(strs[i])))
-            if norm in seen:
-                seen[norm].append(strs[i])
+            if norm in groups:
+                groups[norm].append(word)
             else:
-                seen[norm] = [strs[i]]
-        
+                groups[norm] =  [word]
         res = []
-        print(seen)
-        for key in seen:
-            res.append(seen[key])
+        for key, value in groups.items():
+            res.append(value)
         
         return res
 
+            
+        
