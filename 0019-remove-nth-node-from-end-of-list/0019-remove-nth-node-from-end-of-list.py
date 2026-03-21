@@ -17,12 +17,12 @@ class Solution(object):
 
         for i in range(n):
             fast = fast.next
+            
         if not fast:
             return head.next
         while fast.next:
             slow = slow.next
             fast = fast.next
-            print(fast.val)
         
         slow.next = slow.next.next
         
